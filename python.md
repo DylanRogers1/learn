@@ -1,5 +1,5 @@
 
-# The Ultimate Guide to Everything Python
+# **The Ultimate Guide to Everything Python**
 
 *This tutorial was created by Dylan Rogers. It is owned and managed by [**The Open Project**](https://youtube.com/@open-project) and any attempt to redistribute or use this content must follow the [licence](#licence)*
 
@@ -36,7 +36,7 @@ Credited links:
 [Dylan's YouTube channel](https://youtube.com/@dylancode)  
 [Dylan's github](https://github.com/DylanRogers1)  
 
-# Chapter 1: Hello world
+# **Chapter 1: Hello world**
 
 First of all, download the latest version of Python [here](https://python.org).
 
@@ -61,10 +61,88 @@ A function is just a group of code that executes when the function is called. In
 
 We can *pass arguments* to a function. This means we are giving *data* to the function. When we call `print`, we can give it some text (a *string*) which it will print to the screen.
 
-# Chapter 2: Variables
+# **Chapter 2: Variables**
 
 Variables are a key part of any programming language. They allow you to store data for later.  
 An example of a variable would be `age`, which could store an *integer*, such as `82`.  
 The key thing about variables is that its data can change. `age` could later become `83`, for example.
+
+## Setting variables
+
+Unlike many other languages you don't need to create variables before you give them a value. Instead, we can give the variable a value whenever, even if it doesn't exist yet!
+
+We can assign a variable like this:
+
+``` python
+variable_name = value
+```
+
+For example, we could set the variable `country` to be equal to `"India"` by typing this:
+
+``` python
+country = "India"
+```
+
+## Reading variables
+
+To read a variable, you can literally just type the variable's name! If you want to print a variable, just use this syntax:
+
+``` python
+print(variable_name)
+```
+
+For example, let's say I had a variable called `favourite_programming_language` and that variable had the value `"Python"`. I could print my favourite programming language to the console by typing:
+
+``` python
+print("My favourite programming language is:")
+print(favourite_programming_language)
+```
+
+Which would output:
+
+``` text
+My favourite programming language is:
+Python
+```
+
+Then if I were to change the value of `favourite_programming_language` to equal `"Java"`, the output would become:
+
+``` text
+My favourite programming language is:
+Java
+```
+
+# Chapter 3: Comments
+
+I wanted to dedicate a chapter to something called comments. Comments are quite important, as they allow us to explain our code to... ourselves.  
+You might not think of it, but once you've had a break from working on your program, you probably won't remember what on earth half of your code means.  
+Comments allow us to write notes about our program and explain what our code means.
+
+We can write a Python comment by starting the line with a hashtag **#**. Anything afterwards will be completely ignored, up until the end of the line.
+
+Let's have a look at this code:
+
+``` python
+a = 17
+b = "Billy"
+c = "Winter"
+```
+
+If you gave me this code, I wouldn't have a clue what `a`, `b` and `c` mean. We can make this a lot better using comments:
+
+``` python
+# 'a' is the age of the user
+a = 17
+# 'b' is the username
+b = "Billy"
+# 'c' is the user's favourite season
+c = "Winter"
+```
+
+There, much easier to understand!
+
+(This isn't actually a great use of comments. Instead, we should use comments to explain complicated code, not explain what variables are.)
+
+> It's important to remember that comments are not a solution to bad variable naming. You should always name variables descriptively. You should also always try to make code readable, comments don't fix code.
 
 
