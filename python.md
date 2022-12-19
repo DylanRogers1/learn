@@ -3,6 +3,25 @@
 
 *This tutorial was created by Dylan Rogers. It is owned and managed by [**The Open Project**](https://youtube.com/@open-project) and any attempt to redistribute or use this content must follow the [licence](#licence)*
 
+## Contents
+
+[Home](#the-ultimate-guide-to-everything-python)  
+[Licence](#licence)
+
+[Chapter 1: Hello world](#chapter-1-hello-world)  
+[Chapter 2: Variables](#chapter-2-variables)  
+[Chapter 3: Comments](#chapter-3-comments)  
+[Chapter 4: User input](#chapter-4-user-input)  
+[Chapter 5: Doing some maths](#chapter-5-doing-some-maths)  
+[Chapter 6: Comparison operators](#chapter-6-comparison-operators)  
+[Chapter 7: `if` statements](#chapter-7-if-statements)  
+[Chapter 8: `else` statements](#chapter-8-else-statements)  
+[Chapter 9: `elif`](#chapter-9-elif)  
+[Chapter 10: `while` loops](#chapter-10-while-loops)  
+[Chapter 11: `for` loops](#chapter-11-for-loops)  
+[Chapter 12: Lists](#chapter-12-lists)  
+[Chapter 13: List methods](#chapter-13-list-methods)
+
 ## Licence
 
 <!-- **This content is a fork of the original by Dylan Rogers. Please abide by the licence.** (uncomment this line if your document is a fork of my document) -->
@@ -36,6 +55,8 @@ Credited links:
 [Dylan's YouTube channel](https://youtube.com/@dylancode)  
 [Dylan's github](https://github.com/DylanRogers1)  
 
+[Back to contents](#contents)
+
 # Chapter 1: Hello world
 
 First of all, download the latest version of Python [here](https://python.org).
@@ -60,6 +81,8 @@ In our code, we are calling the `print` function. To call a function, we add `()
 A function is just a group of code that executes when the function is called. In our case, the `print` function prints some text to the screen whenever it is called.
 
 We can *pass arguments* to a function. This means we are giving *data* to the function. When we call `print`, we can give it some text (a *string*) which it will print to the screen.
+
+[Back to contents](#contents)
 
 # Chapter 2: Variables
 
@@ -111,6 +134,8 @@ Then if I were to change the value of `favourite_programming_language` to equal 
 My favourite programming language is:
 Java
 ```
+
+[Back to contents](#contents)
 
 # Chapter 3: Comments
 
@@ -178,6 +203,8 @@ Author: Dylan Rogers
 What we are actually creating here is a multi-line string, however this string is not attached to anything (it isn't used) and so Python ignores it.  
 As I said, it's a bit of a work-around, but it's pretty widely accepted as a valid way of commenting code!
 
+[Back to contents](#contents)
+
 # Chapter 4: User input
 
 We can get user input in Python using the `input` function. Just like `print`, `input` is a built-in function. The two functions are kind of the opposite, with `print` giving output and `input` getting input. We can use them together to make a cool program:
@@ -215,6 +242,8 @@ age = input("How old are you? ")
 ```
 
 That's because the `input` function can take in arguments (information) if you want it to. Whatever we pass to `input` will be the question prompt asked to the user. This is useful as it allows us to get user input in one line of code instead of two. Another reason this is good is because it doesn't go onto a new line, and so the user can type their answer on the same line as the question.
+
+[Back to contents](#contents)
 
 # Chapter 5: Doing some maths
 
@@ -312,6 +341,8 @@ Result:
 1
 ```
 
+[Back to contents](#contents)
+
 # Chapter 6: Comparison operators
 
 In this chapter, we'll look at the different *boolean* operators in Python. Boolean operators compare things, to say whether they are equal, not equal, greater than, less than, etc. Boolean operators are really useful when dealing with **if** statements, which we'll get on to in the next tutorial.
@@ -392,6 +423,8 @@ print(3 >= 7) # False
 print(9 >= 4) # True
 ```
 
+[Back to contents](#contents)
+
 # Chapter 7: `if` statements
 
 `if` statements are where Python programming starts to get really fun. With `if` statements, we can ***branch*** our program and make it do different things depending on user input.  
@@ -433,6 +466,8 @@ In this program, we have `2` if statements. Firstly, if the user is under `18`, 
 
 However, it would be easier to use an `else` statement, so in the next chapter, we'll go over `if` ... `else` statements in Python.
 
+[Back to contents](#contents)
+
 # Chapter 8: `else` statements
 
 We can optionally add an `else` clause to any Python `if` statement. Here's the syntax:
@@ -467,6 +502,8 @@ Notice this is similar to the program in the last chapter, we just substituted `
 > The `else` statement runs if the `if` statement doesn't.
 
 We don't need an `else` statement, but it's good to put one in so that the user always gets a response. There's one more 'add-on' for the if statement, known as the **else if**, or `elif` keyword. Let's learn about that!
+
+[Back to contents](#contents)
 
 # Chapter 9: `elif`
 
@@ -535,6 +572,8 @@ elif age > 2:
 else:
   print("You are a baby, how can you even use the computer?!")
 ```
+
+[Back to contents](#contents)
 
 # Chapter 10: While loops
 
@@ -615,6 +654,8 @@ The loop keeps running until `x` reaches `13`, where it stops.
 
 > A `while` loop works fine for this sort of thing, but a `for` loop would be better in this case. In the next chapter, we'll have a look at using `for` loops in our code.
 
+[Back to contents](#contents)
+
 # Chapter 11: For loops
 
 Unlike `while` loops, `for` loops are what we call **count-controlled**. This means they ***iterate*** (go through) a list or range of numbers. We can predict how many times a `for` loop will run, which makes them useful for counting through a range of numbers.
@@ -640,3 +681,304 @@ The example above illustrates the use of the `range` function to create a list o
 ## The `range` function
 
 The `range` function is a useful, built-in function that allows us to create a list based on a range of numbers. There are lots of different parameters we can pass to the `range` function, so let's go over that now.
+
+We can pass one argument (`a`) to get the values between `0` and `a` (exclusive).  
+This means that we start at `0` and go up to `a`, but stop at `a` (`a` is not included).
+
+Consider this code:
+
+``` python
+for i in range(10):
+  print(i)
+```
+
+The code above would produce the following result:
+
+``` text
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+> Remember: `10` is not included when calling `range(10)`.
+
+We can also pass a starting point to the `range` function. Consider the code below:
+
+``` python
+for i in range(3, 9):
+  print(i)
+```
+
+This code would print the integers between `3` and `8`:
+
+``` text
+[3, 4, 5, 6, 7, 8]
+```
+
+Finally, there is a third argument we can pass to `range`. Let's start at `2`, go up to `20` exclusive, and go up by `2` each time.
+
+``` python
+for i in range(2, 20, 2):
+  print(i)
+```
+
+As you can see, the output to our code would be as follows:
+
+``` text
+[2, 4, 6, 8, 10, 12, 14, 16, 18]
+```
+
+The first argument (`2`) tells the `range` function that we are starting on 2.  
+The second, `20`, tells Python to stop *before* it gets to `20`.  
+Finally, the third argument represents the ***step***. You can think of this as how far Python steps each iteration. By default, this is `1` and `i` increased by `1` every time the loop runs. In our program, however, we set the step to `2`, so `i` increases by `2` each iteration (hence why we get the 2 times table printed out).
+
+## Iterating through a range of numbers
+
+The `range` function is used to allow iterating through ranges of numbers in a `for` loop. We've already created some `for` loops while we practised using `range`, so let's put them together and make a `range`-based `for` loop!
+
+In a `for` loop, just replace where the list would be with the call to the `range` function. Here's an example:
+
+``` python
+for num in range(20, 50, 5):
+  print(num)
+```
+
+You use the `for` keyword to define a `for` loop, which is then followed by a variable. You can call this variable whatever you'd like, and it stores the number of that iteration. After that, we use the `in` keyword, which we finish with either the name of a list, or a call to the `range` function.
+
+## Iterating through a list
+
+We haven't learnt about lists yet (we will literally in the next chapter, though!) so I'll keep this brief, but we can iterate through a list using this syntax:
+
+``` python
+for item in list_name:
+  print(item)
+```
+
+Imagine we had an (incomplete) list of programming languages, stored in a variable called `langs`.
+
+``` python
+langs = ["python", "java", "c", "c++", "c#", "javascript", "rust"]
+for lang in langs:
+  print(item)
+```
+
+The above code would output the following:
+
+``` text
+python
+java
+c
+c++
+c#
+javascript
+rust
+```
+
+Let's go through why.
+
+Firstly, we're creating a list. We'll cover creating lists in the next chapter, just know that a list is a group of different things.  
+On line 2, we are iterating through the list. On every iteration, we store the current item in the list, whether that be *c*, *python*, *java*, or something else.  
+Finally, we are printing the programming language to the screen.  
+The loop goes through every item in the list, printing each one.
+
+[Back to contents](#contents)
+
+# Chapter 12: Lists
+
+A list is just a group of data. For example, I could have a list of names, or a list of my favourite numbers.
+
+## Creating lists
+
+We can create a list in a similar way to a variable. Here is the syntax for creating a list:
+
+``` python
+list_name = [item_1, item_2, item_3, ...]
+```
+
+We start off by creating a variable to store the list in. In my program, I'll create a list of foods, so my list is called `foods`. We can indicate an empty list by using **square brackets** `[]`. Therefore, to create an empty list called `foods`, we would type the following code:
+
+``` python
+foods = []
+```
+
+That creates an empty list, but how would we add things to it? Well, one way of adding items to a list is by using the list's `append` method. I explain how to do that [later in this chapter](#adding-items-to-a-list), but we want to create a list that already contains **elements** (items). We can do this by putting items inside the square brackets.
+
+``` python
+foods = ["pizza"]
+```
+
+That's how to give a list a single value, but what if we wanted a list with multiple elements? That's kind of the point in a list, so let's do that!
+
+We can create a list with multiple elements in it by seperating the elements with **commas** `,`. Consider this code:
+
+``` python
+foods = ["pizza", "curry", "pasta"]
+```
+
+This creates a new list called `foods` containing the elements `pizza`, `curry` and `pasta`.
+
+The important thing to remember is that, if we overwrite the list, the original values will be deleted. Look at the code below:
+
+``` python
+foods = ["pizza", "curry", "pasta"]
+foods = ["ice cream", "chocolate", "cake"]
+```
+
+The values `pizza`, `curry` and `pasta` will be overwritten by `ice cream`, `chocolate` and `cake`. If you need to add elements to a list, use [the `append` method](#adding-items-to-a-list).
+
+## Printing lists
+
+After we have created a list, it's easy to print the list to the console. Consider a list, called `name`, containing the elements `"Layla"`, `"Bob"` and `"Joe"`:
+
+``` python
+names = ["Layla", "Bob", "Joe"]
+```
+
+We can print `names` by simply calling the `print` function:
+
+``` python
+names = ["Layla", "Bob", "Joe"]
+print(names)
+```
+
+Output:
+
+``` text
+["Layla", "Bob", "Joe"]
+```
+
+If you would like to print the list in an actual application, consider using a `for` loop:
+
+``` python
+names = ["Layla", "Bob", "Joe"]
+for name in names:
+  print(name)
+```
+
+Output:
+
+``` text
+Layla
+Bob
+Joe
+```
+
+## Accessing list elements
+
+Every element (item) in a list has an ***index***. An index is just a position in the list. Indexes start from `0`, so the first element in any list will always have an index of `0`.
+
+We can get a list element using the index. Below is shown the syntax for getting an element at a specific index:
+
+``` python
+list_name[index]
+```
+
+We could print the element using this syntax:
+
+``` python
+print(list_name[index])
+```
+
+Let's take our old list of names. We know that list indexes start from `0`, so the first element (Layla) will have an index of `0`. Below are shown the indexes of each element in the list.
+
+* Layla (0)
+* Bob (1)
+* Joe (2)
+
+We can access these elements using their index:
+
+``` python
+print(names[0]) # Layla
+print(names[1]) # Bob
+print(names[2]) # Joe
+```
+
+Another example:
+
+``` python
+countries = ["England", "USA", "Canada", "Nederland", "France"]
+print(countries[2]) # Canada
+print(countries[4]) # France
+print(countries[3]) # Nederland
+print(countries[0]) # England
+```
+
+> Always remember that list indexes start from `0`, not `1`.
+
+We can change the value of an element using its index:
+
+``` python
+print(countries[3]) # Nederland
+countries[3] = "The Netherlands"
+print(countries[3]) # The Netherlands
+```
+
+Output:
+
+``` text
+Nederland
+The Netherlands
+```
+
+This changes `"Nederlands"` to `"The Netherlands"`, but all other elements stay the same.
+
+[Back to contents](#contents)
+
+# Chapter 13: List methods
+
+## Adding items to a list
+
+We can add items to a Python list by using the `append` method. `append` is a method of every list, you don't need to create it.
+
+``` python
+fruits = ["apple", "raisin", "pineapple"]
+print(fruits) # ["apple", "raisin", "pineapple"]
+fruits.append("blueberry")
+print(fruits) # ["apple", "raisin", "pineapple", "blueberry"]
+```
+
+In the above example, we first create a new list, called fruits. To begin with, we have exactly `3` elements in our list. On the third line, we add a new element, `blueberry`, to the list.
+
+Another method we can use is `insert`. The main difference between `insert` and `append` is that, with `insert`, we can choose where the new element goes. Consider the following list:
+
+``` python
+food = ["pizza", "curry", "pasta"]
+```
+
+We *could* use the `append` method to add `lasagne` to the end of the list. However, let's imagine this list is in order of favourite foods - `pizza` is best, `pasta` is worst. I can't just insert it at the end of the list! Instead, I can use the `insert` method:
+
+``` python
+food = ["pizza", "curry", "pasta"]
+food.insert(1, "lasagne")
+print(food)
+```
+
+Output:
+
+``` text
+["pizza", "lasagne", "curry", "pasta"]
+```
+
+Let's break down this code. The first thing we are doing is calling the `insert` method on the `food` list. We are inserting `lasagne` at position `1`, meaning `lasagne` will now be at index `1`.
+
+> Remember: When using the `insert` method, all existing elements after the inserted element get shifted, and their indexes change. In the above program, `curry` used to be at index `1` but was shifted to index `2`.
+
+## Removing items from a list
+
+Just like adding items, we can also remove list items. First, though, let's go over deleting and clearing an entire list.
+
+We can delete an object using the `del` keyword. Consider the following example:
+
+``` python
+my_list = ["hello", "world", "python", "computer", "explosion"]
+del my_list # my_list doesn't exist anymore
+```
+
+The above code deletes `my_list` from the face of the earth (well, the memory...)  
+`my_list` can no longer be accessed, and it's memory space is cleared.
+
+We can also delete a specific element from a list:
+
+
+
+> The `del` keyword deletes the actual list, instead of just clearing it. If you want an empty list, use the `clear` method.
+
+[Back to contents](#contents)

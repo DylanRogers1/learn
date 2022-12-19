@@ -1,2 +1,3 @@
-for i in range(5):
-	print(i)
+food = ["pizza", "curry", "pasta"]
+food.insert(1, "lasagne")
+print(food)
