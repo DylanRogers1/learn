@@ -21,6 +21,8 @@
 [Chapter 11: `for` loops](#chapter-11-for-loops)  
 [Chapter 12: Lists](#chapter-12-lists)  
 [Chapter 13: List methods](#chapter-13-list-methods)
+[Chapter 14: Functions](#chapter-14-functions)
+[Chapter 15: Strings](#chapter-15-strings)
 
 ## Licence
 
@@ -977,8 +979,288 @@ The above code deletes `my_list` from the face of the earth (well, the memory...
 
 We can also delete a specific element from a list:
 
+``` python
+my_list = ["hello", "world", "python", "computer", "explosion"]
+del my_list[2] # deletes index 2 ("python") from the list.
+print(my_list)
+```
 
+Result:
+
+``` text
+["hello", "world", "computer", "explosion"]
+```
+
+Alternatively, we can clear the list by using the `clear` method.
+
+``` python
+my_list = ["hello", "world", "python", "computer", "explosion"]
+print(my_list) # ["hello", "world", "python", "computer", "explosion"]
+my_list.clear()
+print(my_list) # []
+```
+
+Output:
+
+``` text
+["hello", "world", "python", "computer", "explosion"]
+[]
+```
 
 > The `del` keyword deletes the actual list, instead of just clearing it. If you want an empty list, use the `clear` method.
 
+If you know the value of the item you'd like to 'dispose' of, you can use the `remove` method.  
+Let's imagine you really didn't want anyone named `Charlotte` to be your friend anymore:
+
+``` python
+friends = ["Anna", "Charlotte", "Emma", "Charlotte", "Charlotte"]
+friends.remove("Charlotte") # No more Charlottes!
+print(friends) # ["Anna", "Emma"]
+```
+
+And just like that, you've got rid of all the `Charlotte`s!
+
+## Getting the length of a list
+
+We can get the length of any list using the `len` function.
+
+``` python
+friends = ["Bob", "Billy", "Ben"]
+friends_len = len(friends)
+print("You have", friends_len, "friends!")
+```
+
+Output:
+
+``` text
+You have 3 friends!
+```
+
+In the above code, we are storing the length of `friends` as a variable, but we could just print it directly
+
+``` python
+friends = ["Bob", "Billy", "Ben"]
+print("You have", len(friends), "friends!") # still prints 'You have 3 friends!'
+```
+
+We can also use the `count` method to do something similar, however I won't get into that now.
+
+## Joining two lists together
+
+We can join two lists together by using the `extend` method.
+
+``` python
+menu = ["Chips", "Pizza", "Curry"]
+new_items = ["Pasta", "Soup"]
+menu.extend(new_items)
+print(menu)
+```
+
+Output:
+
+``` text
+Chips
+Pizza
+Curry
+Pasta
+Soup
+```
+
+As you can see, in the above example, we start with a menu of `3` things. We then *extend* the menu by adding the items from the `new_items` list.
+
 [Back to contents](#contents)
+
+# Chapter 14: Functions
+
+This is another key point in our Python learning journey. Functions allow us to create ***reusuable code*** for our project.
+
+Reusable code is where you can create a function to do something, and then call that function multiple times. This makes our code easier to read (and we don't have to type as much!)
+
+We can create a function using this syntax:
+
+``` python
+def function_name():
+  # code
+```
+
+Let's create a function called `say_hello`:
+
+``` python
+def say_hello():
+  print("Hello!")
+```
+
+I'll break down what's going on here.
+
+We create a function using the `def` keyword. The name of the function is `say_hello`. The *body* of the function (the code) prints `"Hello!"`.
+
+We can call our function by typing `say_hello()`:
+
+``` python
+def say_hello():
+  print("Hello")
+
+say_hello()
+```
+
+Output:
+
+``` text
+Hello!
+```
+
+> There are two benefits of using functions. It makes writing code easier, as you don't need to write the same thing over and over again. It also makes changing code easier, as you just need to change it in one place, and it changes everywhere.
+
+## Function parameters
+
+**Parameters** and **arguments** are often used interchangebly, but there is a difference. When we call a function, the data we give is called an argument. In the code `print("Hello world")`, `"Hello world"` is an argument. A parameter is what the function gets, and we'll discuss parameters now.
+
+We can write the parameters name *inside* the brackets `()` after the function name:
+
+``` python
+def say_hello(arguments_go_here):
+  print("Hello")
+```
+
+Let's say we wanted to accept one argument - the user's **name**. We could do this using the following code:
+
+``` python
+def say_hello(name):
+  print("Hello")
+```
+
+We can then use the value of `name` as if it were a variable:
+
+``` python
+def say_hello(name):
+  print("Hello", name)
+```
+
+Now that we have a working `say_hello` function, let's call it!
+
+``` python
+def say_hello(name):
+  print("Hello", name)
+
+say_hello("Bobby")
+say_hello("Billy")
+say_hello("Ben")
+```
+
+Output:
+
+``` text
+Hello Bobby
+Hello Billy
+Hello Ben
+```
+
+As you can see, our function works! Now let's look at *returning* data.
+
+## Returning data from a function
+
+Think back to the `input` function - `input` returns data. When we say return data, we mean give information back to the *caller*. Here's how to do it in Python, using an example `greet` function:
+
+``` python
+def greet():
+  print("Hello")
+  name = input("What is your name? ")
+  return name
+```
+
+The greet function says `Hello`, asks for the user's name and then returns that name.
+
+The final line is the important line. We use the `return` keyword to return a value from a function. To the right of `return`, we type the value that we want to return (in this case, we return the value of `name`).
+
+We can then use this function just like the `input` function. Here's an example:
+
+``` python
+def greet():
+  print("Hello")
+  name = input("What is your name? ")
+  return name
+
+username = greet()
+print("Hello", username)
+```
+
+Output:
+
+``` text
+Hello
+What is your name? Dylan
+Hello Dylan
+```
+
+[Back to contents](#contents)
+
+# Chapter 15: Strings
+
+## String literals
+
+We've seen string literals before, but let's start by going over what a **string literal** actually is.
+
+A literal is just a value that never changes. Consider the following program:
+
+``` python
+print("Hello world")
+```
+
+In the above program, `"Hello world"` is a string literal. It's a literal because it never changes - whenever we run our program, it will **always** print `"Hello world"`.
+
+A **string** is just a sequence of characters. In other words, it's just some text. Strings can contain numbers, symbols, letters, etc.
+
+We can create a string literal by surrounding text in single `'` or double `"` speech marks.
+
+``` python
+"This is a string literal"
+'This is also a string literal'
+This is not a string
+```
+
+## Accessing elements in a string
+
+A string is technically just an array (like a list). This means we can do all sorts of fancy operations on strings. One such operation is accessing a single element (character) of the string. Below is an example of accessing element in a string.
+
+``` python
+string = "The quick brown fox jumps over the lazy dog"
+print(string[3]) # prints 'q'
+```
+
+However, the issue with accessing specific characters of a string is that we can't actually change the letters individually, like we can with list elements. This is because strings are *immutable*, which I won't get into in this chapter. Just know that strings cannot be changed.
+
+## Checking if a string contains a substring
+
+We can check if a substring is present in a string by using the `in` keyword.
+
+``` python
+string = "The quick brown fox jumps over the lazy hog"
+if "hog" in string:
+  print("hog is in string")
+if "d" not in string:
+  print("d is no longer in string!")
+```
+
+Output:
+
+``` text
+hog is in string
+d is no longer in string!
+```
+
+Python checked to see if the word '`hog` was in the string, which it was, so the `if` statement ran.
+
+## Getting the length of a string
+
+Because strings are just arrays, we can get the length of a string using the `len` function:
+
+``` python
+string = "The quick brown fox jumps over the lazy dog"
+print(string, "contains", len(string), "letters.")
+```
+
+Output:
+
+``` text
+The quick brown fox jumps over the lazy dog contains 43 letters.
+```

@@ -1,3 +1,2 @@
-food = ["pizza", "curry", "pasta"]
-food.insert(1, "lasagne")
-print(food)
+string = "The quick brown fox jumps over the lazy dog"
+print(string, "contains", len(string), "letters.")
