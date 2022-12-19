@@ -1,0 +1,32 @@
+body
+{
+	background-color: #000000;
+}
+
+h1
+{
+	color: #44ffff;
+	font-weight: bolder;
+	text-decoration: underline;
+	text-decoration-style: dotted;
+	text-decoration-thickness: 0.08em;
+	text-decoration-color: #aaaaaa;
+}
+
+code
+{
+	color: #ffff00;
+	background-color: #111111;
+	border-radius: 0.2em;
+}
+
+b, strong, i, em
+{
+	color: #22ff22;
+}
+
+p
+{
+	font-size: 1em;
+}
+
