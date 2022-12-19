@@ -5,12 +5,23 @@ body
 
 h1
 {
-	color: #44ffff;
+	color: #00ffff;
 	font-weight: bolder;
 	text-decoration: underline;
 	text-decoration-style: dotted;
 	text-decoration-thickness: 0.08em;
 	text-decoration-color: #aaaaaa;
+}
+
+h2
+{
+	color: #ff44ff
+}
+
+a
+{
+	color: #ffaa00;
+	text-decoration: underline;
 }
 
 code
@@ -28,5 +39,6 @@ b, strong, i, em
 p
 {
 	font-size: 1em;
+	color: white;
 }
 
