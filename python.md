@@ -1507,4 +1507,4 @@ If you need to modify the tuple later, use a list instead, or convert the tuple 
 
 ## Sets
 
-Sets are also like lists, but they are not ordered.
+Sets are also like lists, but they are not ordered. You can add or remove elements, but 
