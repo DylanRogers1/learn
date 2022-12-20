@@ -1,54 +1,3 @@
-body
-{
-	background-color: #fff;
-}
-
-h1
-{
-	color: #00f;
-	font-weight: bolder;
-	text-decoration: underline;
-	text-decoration-style: dotted;
-	text-decoration-thickness: 0.08em;
-	text-decoration-color: #aaaaaa;
-}
-
-h2
-{
-	color: #b0f;
-	font-weight: bold;
-	text-decoration: underline;
-	text-decoration-style: dotted;
-	text-decoration-thickness: 0.08em;
-	text-decoration-color: #aaaaaa;
-}
-
-a
-{
-	color: #f00;
-	text-decoration: underline;
-}
-
-code
-{
-	background-color: #eee;
-	color: #03f;
-	border-radius: 0.2em;
-}
-
-b, strong, i, em
-{
-	color: #0a0;
-}
-
-p
-{
-	font-size: 1em;
-	color: #000;
-}
-
-/*
-
 {
     "editor.fontSize": 22,
     "git.enableSmartCommit": true,
@@ -67,10 +16,6 @@ p
     "editor.detectIndentation": false,
 		"editor.insertSpaces": false,
 		"workbench.colorCustomizations": {
-		
-
-
-
 			"[Monokai]": {
 				"editor.background": "#000000",
 				"activityBar.background": "#000000",
@@ -113,10 +58,6 @@ p
 			"keyword": "#00ff00",
 			"condition": "#00ff00"
 		},
-		"workbench.statusBar.visible": false,
-		"workbench.activityBar.visible": false,
 		"window.menuBarVisibility": "toggle",
 		
 }
-
-*/
