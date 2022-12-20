@@ -24,6 +24,7 @@
 [Chapter 14: Functions](#chapter-14-functions)
 [Chapter 15: Strings](#chapter-15-strings)
 [Chapter 16: Tuples and sets](#chapter-16-tuples-and-sets)
+[Chapter 17: Data types](#chapter-17-data-types)
 
 ## Licence
 
@@ -1515,8 +1516,194 @@ We can create a set like this:
 my_set = {item_1, item_2, item_3 ...}
 ```
 
-Imagine we had a list of names. They don't need to be in any specific order, as long as they are stored. How would we go about doing that? One way is to use a set!
+Imagine we had an array of names. They don't need to be in any specific order, as long as they are stored. How would we go about doing that? One way is to use a set!
 
 ``` python
 names = {"Billy", "Bob", "Ben"}
 ```
+
+The issue is that, when we come to print our set, the elements will appear in a random order. For this reason, only use sets when you don't need to know the order of elements.
+
+While we can technically loop through a set using a `for` loop, the items will appear in a random order, so you may experience issues.
+
+``` python
+names = {"Billy", "Bob", "Ben"}
+for name in names:
+  print(name)
+```
+
+Output (may be in a different order):
+
+``` text
+Bob
+Ben
+Billy
+```
+
+> The names are printed in a random order, because sets are not ordered.
+
+We'll learn more about sets in another chapter, so let's just learn how to add and remove items.
+
+Adding items to a set, using the `add()` method:
+
+``` python
+names = {"Billy", "Bob", "Ben"}
+names.add("Bernard")
+print(names)
+```
+
+Output (in no specific order):
+
+``` text
+Ben
+Bob
+Bernard
+Billy
+```
+
+Removing items from a set, using the `remove()` method:
+
+``` python
+names = {"Billy", "Bob", "Ben"}
+names.remove("Billy") # No more Billy!
+print(names)
+```
+
+Output (in any order):
+
+``` text
+Ben
+Bob
+```
+
+# Chapter 17: Data types
+
+I was going to write this chapter on **dictionaries**, another type of array, but I feel like we've been doing a lot on arrays and lists and strings, so let's go over the data types in Python!
+
+## String
+
+The most familiar data type to you is most likely `str` (short for **string**) because it just represents text.
+
+Examples of **strings**:
+
+* `"Hello world"`
+* `PaSSwoRd-132`
+* `!3.2/4fh92f0l4bkjsf0][]`
+
+We can create a string literal using either single (`'`) or double (`"`) quotation marks.
+
+``` python
+my_string = "Hello"
+your_string = 'world'
+```
+
+To convert another type to a string, use the `str()` function:
+
+``` python
+my_num = 15
+my_string = str(my_num) # "15"
+```
+
+## Integer
+
+The `int` type (short for **integer**) is probably also familiar to you. Integers store **whole numbers**, such as `7` or `-89`.
+
+Examples of **integers**:
+
+* `543`
+* `-1211`
+* `2718281828`
+
+Integer literals can be created by just typing the number (no additional symbols are needed):
+
+``` python
+my_int = 27
+your_int = -5
+```
+
+To convert another type to an integer, use the `int()` function:
+
+``` python
+my_string = "45"
+my_int = int(my_num) # 45
+```
+
+> **Warning**: When converting floating-point numbers to integers, the decimal part will be lost. See the code below for an example.
+
+``` python
+my_float = 3.1415926535898 # Approximation of PI (that's all I can remember, sorry)
+my_int = int(my_float) # 3
+print(my_int)
+```
+
+Output:
+
+``` text
+3
+```
+
+> When Python converted the float to an integer, it 'chopped off' the decimal part. This is known as ***truncation***
+
+## Float
+
+**Floating-point** numbers are numbers that contain a decimal.
+
+Examples of **floating-point** numbers:
+
+* `32.67`
+* `-4.2`
+* `-53.0` (kind of)
+
+Float literals are created whenever we write a number with a decimal point.
+
+``` python
+my_float = 2.718281828 # ~e
+your_float = 32.0
+```
+
+We can convert a number to a float using the `float` function:
+
+``` python
+my_int = 21
+my_float = float(my_int)
+print(my_float)
+```
+
+Output:
+
+``` text
+21.0
+```
+
+## Boolean
+
+The `bool` data type can only store two values - `True` or `False`.
+
+Examples of booleans:
+
+* `True`
+* `False`
+
+We can create a boolean literal by using either the `True` or `False` keyword.
+
+``` python
+my_bool = True
+your_bool = False
+```
+
+To convert to a boolean, use the `bool` function:
+
+``` python
+my_string = "hello"
+my_bool = bool(my_string)
+```
+
+> **True or False?** Every value in Python can evaluate to either `True` or `False`. In general, almost every value evaluated to `True`. The only things that are *not* `True` are empty strings, the number `0`, and empty arrays. These evaluate to `False`.
+
+`False` values:
+
+* Empty strings (`""`)
+* The number `0`
+* Empty lists, containing no elements (`[]`)
+
+Every other value evaluates to `True`.
