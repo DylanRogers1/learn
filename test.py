@@ -1,2 +1,3 @@
-string = "The quick brown fox jumps over the lazy dog"
-print(string, "contains", len(string), "letters.")
+string = "Python: The Greatest Programming Language"
+if string.islower():
+  print(string, "is lowercase")

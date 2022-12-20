@@ -23,6 +23,7 @@
 [Chapter 13: List methods](#chapter-13-list-methods)
 [Chapter 14: Functions](#chapter-14-functions)
 [Chapter 15: Strings](#chapter-15-strings)
+[Chapter 16: Tuples and sets](#chapter-16-tuples-and-sets)
 
 ## Licence
 
@@ -1264,3 +1265,203 @@ Output:
 ``` text
 The quick brown fox jumps over the lazy dog contains 43 letters.
 ```
+
+The `len` function will return the number of characters (letters/numbers/symbols) in a string, just like it returns the number of elements in a list.
+
+## Multi-line strings
+
+We can actually create what's called a **multi-line string** in Python. As the name suggests, this is a string that spans multiple lines. We can create a multi-line string using the following syntax:
+
+``` python
+string = """Text
+Goes
+Here"""
+```
+
+Let's do an example!
+
+``` python
+"""Author: Dylan Rogers
+Date: 20/12/2022
+Title: Program involving strings
+Description: This is my awesome program! I used a multi-line string in it!"""
+```
+
+We could then store the string like this:
+
+``` python
+info = """Author: Dylan Rogers
+Date: 20/12/2022
+Title: Program involving strings
+Description: This is my awesome program! I used a multi-line string in it!"""
+```
+
+And then print that variable out:
+
+``` python
+info = """Author: Dylan Rogers
+Date: 20/12/2022
+Title: Program involving strings
+Description: This is my awesome program! I used a multi-line string in it!"""
+
+print(info)
+```
+
+Output:
+
+``` text
+Author: Dylan Rogers
+Date: 20/12/2022
+Title: Program involving strings
+Description: This is my awesome program! I used a multi-line string in it!
+```
+
+> You may remember multi-line strings from when we were learning about [comments](#chapter-3-comments)!
+
+## Iterating through a string
+
+Because strings are arrays, we can loop through them using a `for` loop. The program below prints each character of the string `"I like python"`:
+
+``` python
+msg = "I like python"
+for letter in msg:
+  print(letter)
+```
+
+Output:
+
+``` text
+I
+
+l
+i
+k
+e
+
+p
+y
+t
+h
+o
+n
+```
+
+The above code iterates through each letter of the `msg` variable: `I`, `(space)`, `l`, `i`, `k`, `e`, `(space)`, `p`, `y`, `t`, `h`, `o` and `n`
+
+## Slicing strings
+
+We can slice strings in exactly the same way as slicing lists.
+
+``` python
+msg = "Hello world"
+print(msg[6:])
+# prints 'world'
+```
+
+``` python
+msg = "My friend Bob"
+print(msg[:-4])
+# prints 'My friend'
+```
+
+``` python
+msg = "The quick brown fox jumps over the lazy dog"
+print(msg[4:19])
+# prints 'quick brown fox'
+```
+
+> We will learn much more about slicing lists in a future chapter. Don't worry if you don't understand this code at the moment.
+
+## String methods
+
+We can turn a string into lowercase by using the `lower()` function:
+
+``` python
+string = "Hello World"
+lstring = string.lower()
+print(lstring)
+```
+
+Output:
+
+``` text
+hello world
+```
+
+We can also turn a string into all uppercase:
+
+``` python
+string = "Hello Bob!"
+ustring = string.upper()
+print(ustring)
+```
+
+Output:
+
+``` text
+HELLO BOB!
+```
+
+We can also turn a string into titlecase:
+
+``` python
+string = "mysterious programming language, named python, emerges."
+tstring = string.title()
+print(tstring)
+```
+
+Output:
+
+``` text
+Mysterious Programming Language, Named Python, Emerges.
+```
+
+We can also check if a string is all lowercase, using the `islower()` method:
+
+``` python
+string = "hello world"
+if string.islower():
+  print(string, "is lowercase")
+```
+
+Output:
+
+``` text
+hello world is lowercase
+```
+
+Check if a string is all uppercase, using the `isupper()` method:
+
+``` python
+string = "I LOVE PROGRAMMING SO MUCH"
+if string.isupper():
+  print(string, "is uppercase")
+```
+
+Output:
+
+``` text
+I LOVE PROGRAMMING SO MUCH is uppercase.
+```
+
+Finally, check whether a string is titlecase, using the `istitle()` method:
+
+``` python
+string = "Python: The Greatest Programming Language"
+if string.islower():
+  print(string, "is lowercase")
+```
+
+Output:
+
+``` text
+
+```
+
+> Nothing is printed because `Python: The Greatest Programming Language` contains a symbol (`:`). This stops it being titlecase.
+
+There are also a few other methods, however this chapter is really, really long, so I'll stop it here!
+
+[Back to contents](#contents)
+
+# Chapter 16: Tuples and sets
