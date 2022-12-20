@@ -1465,3 +1465,46 @@ There are also a few other methods, however this chapter is really, really long,
 [Back to contents](#contents)
 
 # Chapter 16: Tuples and sets
+
+## Tuples
+
+Like lists, **tuples** are a type of array. The main difference between a tuple and a list is that tuples are ***read-only***. This means that, once we've created the tuple, we can't change the values.
+
+Creating a tuple:
+
+``` python
+my_tuple = (item_1, item_2, item_3, ...)
+```
+
+We can access the elements in a tuple the same way as we would access those of a list:
+
+``` python
+person = ("Billy", 22, "Male", "19/02/2000")
+print(person[2])
+```
+
+Output:
+
+``` text
+Male
+```
+
+However, if we try to modify one of the elements:
+
+``` python
+person = ("Billy", 22, "Male", "19/02/2000")
+person[1] = 23
+```
+
+We get an error.
+
+``` text
+Exception has occurred: TypeError
+'tuple' object does not support item assignment
+```
+
+If you need to modify the tuple later, use a list instead, or convert the tuple to a list using the `list()` class.
+
+## Sets
+
+Sets are also like lists, but they are not ordered.

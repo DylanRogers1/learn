@@ -1,3 +1,2 @@
-string = "Python: The Greatest Programming Language"
-if string.islower():
-  print(string, "is lowercase")
+person = ("Billy", 22, "Male", "19/02/2000")
+person[1] = 23
