@@ -1473,7 +1473,7 @@ Like lists, **tuples** are a type of array. The main difference between a tuple 
 Creating a tuple:
 
 ``` python
-my_tuple = (item_1, item_2, item_3, ...)
+my_tuple = (item_1, item_2, item_3 ...)
 ```
 
 We can access the elements in a tuple the same way as we would access those of a list:
@@ -1507,4 +1507,16 @@ If you need to modify the tuple later, use a list instead, or convert the tuple 
 
 ## Sets
 
-Sets are also like lists, but they are not ordered. You can add or remove elements, but 
+Sets are also like lists, but they are not ordered. You can add or remove elements, but attempting to modify an existing element will result in an error.
+
+We can create a set like this:
+
+``` python
+my_set = {item_1, item_2, item_3 ...}
+```
+
+Imagine we had a list of names. They don't need to be in any specific order, as long as they are stored. How would we go about doing that? One way is to use a set!
+
+``` python
+names = {"Billy", "Bob", "Ben"}
+```
