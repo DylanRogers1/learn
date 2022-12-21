@@ -3,6 +3,11 @@ body
 	background-color: #fff;
 }
 
+*
+{
+	color: black;
+}
+
 h1
 {
 	color: #00f;

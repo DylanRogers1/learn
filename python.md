@@ -25,6 +25,8 @@
 [Chapter 15: Strings](#chapter-15-strings)
 [Chapter 16: Tuples and sets](#chapter-16-tuples-and-sets)
 [Chapter 17: Data types](#chapter-17-data-types)
+[Chapter 18: Dictionaries](#chapter-18-dictionaries)
+[Chapter 19: Classes](#chapter-19-classes)
 
 ## Licence
 
@@ -1576,6 +1578,8 @@ Ben
 Bob
 ```
 
+[Back to contents](#contents)
+
 # Chapter 17: Data types
 
 I was going to write this chapter on **dictionaries**, another type of array, but I feel like we've been doing a lot on arrays and lists and strings, so let's go over the data types in Python!
@@ -1707,3 +1711,533 @@ my_bool = bool(my_string)
 * Empty lists, containing no elements (`[]`)
 
 Every other value evaluates to `True`.
+
+## Getting the data type
+
+We can find out what data type a value is using the `type()` class.
+
+``` python
+a = 3
+b = "bonjour"
+c = 4.27
+d = False
+
+print(type(a)) # int
+print(type(b)) # str
+print(type(c)) # float
+print(type(d)) # bool
+```
+
+Output:
+
+``` text
+<class 'int'>
+<class 'str'>
+<class 'float'
+<class 'bool'>
+```
+
+[Back to contents](#contents)
+
+# Chapter 18: Dictionaries
+
+Dictionaries are essentially lists, but we access the data through a name. Here is an example:
+
+``` python
+capitals = {"England" : "London" , "France" : "Paris" , "Spain" : "Madrid"}
+print(capitals["France"]) # Paris
+print(capitals["Spain"]) # Madrid
+```
+
+Output:
+
+``` python
+Paris
+Madrid
+```
+
+> Dictionaries store what we call **key-value pairs**. This means that, when we create an element in a dictionary, we give it a **key** that we can access it by.
+
+## Creating a dictionary
+
+We can create a dictionary using curly brackets `{}`.
+
+``` python
+populations = {}
+```
+
+Inside the brackets, you can write **key-value pairs**. This is where you write the **key**, followed by a colon (`:`), followed by the **value**.
+
+``` python
+populations = {"Australia" : 25978935}
+```
+
+We can add multiple elements by seperating each **key-value pair** with a **comma** (`,`):
+
+``` python
+populations = {"Australia" : 25978935 , "USA" : 335776863 , "Algeria" : 45799940 , "China" : 1452992821}
+```
+
+We could make this code easier to read by spreading it out over multiple lines:
+
+``` python
+populations = {
+  "Australia" : 25978935,
+  "USA" : 335776863,
+  "Algeria" : 45799940,
+  "China" : 1452992821
+}
+```
+
+## Printing dictionaries
+
+To print a dictionary, we can simply pass the dictionary to the `print` function.
+
+``` python
+populations = {"Australia" : 25978935 , "USA" : 335776863 , "Algeria" : 45799940 , "China" : 1452992821}
+print(populations)
+```
+
+Output:
+
+``` python
+{'Australia': 25978935, 'USA': 335776863, 'Algeria': 45799940, 'China': 1452992821}
+```
+
+As you can see, Python gives us the dictionary in **key-value pairs**. If you want the output to be a little cleaner, consider using a `for` loop:
+
+``` python
+populations = {"Australia" : 25978935 , "USA" : 335776863 , "Algeria" : 45799940 , "China" : 1452992821}
+for i in populations:
+  print(i)
+```
+
+Output:
+
+``` text
+Australia
+USA
+Algeria
+China
+```
+
+As you can see, when we loop through a dictionary, we get the **key** of the element. If we wanted to print the values, we could do something like this:
+
+``` python
+populations = {"Australia" : 25978935 , "USA" : 335776863 , "Algeria" : 45799940 , "China" : 1452992821}
+for i in populations:
+  print(populations[i])
+```
+
+Output:
+
+``` text
+25978935
+335776863
+45799940
+1452992821
+```
+
+We could combine the two and print both the key and the value:
+
+``` python
+populations = {"Australia" : 25978935 , "USA" : 335776863 , "Algeria" : 45799940 , "China" : 1452992821}
+for i in populations:
+  print(i, "has a population of", populations[i])
+```
+
+Output:
+
+``` text
+Australia has a population of 259789
+USA has a population of 335776863
+Algeria has a population of 45799940
+China has a population of 1452992821
+```
+
+## Accessing elements in a dictionary
+
+We can access dictionary elements in the same way as we access list elements, however we type the **key** in place of the index.
+
+The syntax for printing an element in a dictionary is as follows:
+
+``` python
+print(dictionary[key])
+```
+
+Let's do an example. Going back to our *population* dictionary, how would we find the population of a specific country? Well, just type the name of the country in the square brackets.
+
+``` python
+populations = {"Australia" : 25978935 , "USA" : 335776863 , "Algeria" : 45799940 , "China" : 1452992821}
+print("Population of Algeria:" populations["Algeria"]
+```
+
+In the above code, we are getting the value of the key named `"France"`. Let's do another example:
+
+``` python
+populations = {"Australia" : 25978935 , "USA" : 335776863 , "Algeria" : 45799940 , "China" : 1452992821}
+country = input("Enter a country: ")
+print(populations[coChapter 19: Classesuntry])
+```
+
+In this program, we start by asking the user to enter a country. We store that country in a variable named `country`.  
+We then use the user input as a **key**. We find the value associated with that key, and print it.
+
+Let's imagine we entered `"China"`. The output would be:
+
+``` text
+Enter a country: *China*
+-1452992821-
+```
+
+We can also change the value of elements in a dictionary. We do this the exact same way as with lists, only using keys instead of indexes.
+
+``` python
+dictionary[key] = value
+```
+
+Let's do an example. Suppose we wanted to allow the user to add their own item to the list.
+
+``` python
+populations = {"Australia" : 25978935 , "USA" : 335776863 , "Algeria" : 45799940 , "China" : 1452992821}
+country = input("Enter a country... ")
+country_population = input("Enter the population... ")
+populations[country] = country_population
+print(populations)
+```
+
+Output:
+
+``` text
+Enter a country... *UK*
+Enter the population... *68763110*
+{'Australia': 25978935, 'USA': 335776863, 'Algeria': 45799940, 'China': 1452992821, 'UK': '68763110'}
+```
+
+Let's run through each line of the program.
+
+* **Line 1**: On line 1, we create the `populations` dictionary. This initially holds `4` elements.
+* **Line 2**: Here we are asking the user to enter the name of a country. We store this value in the `country` variable.
+* **Line 3**: We ask the user for the population of that country, and store this in the `country_population` variable.
+* **Line 4**: This is the important line. We are accessing an element in the `populations` dictionary. Instead of passing a literal as the key, the key is the country the user typed in, stored in the `country` variable. We set the value of this element to the value of `country_population`.
+* **Line 5**: Finally, we just print the `populations` dictionary.
+
+## Check if a key exists
+
+We can check if a key exists in a dictionary by using the `in` keyword.
+
+``` python
+yellow = { "colour" : "yellow" , "red" : 255 , "green" : 255 , "blue" : 255 }
+
+if "colour" in yellow:
+  print("'colour' is a key in the `yellow` dictionary!")
+```
+
+## Project: Python Programmers' Index
+
+Now is a great time to do a little Python project. What we're going to create is an app that allows us to update a dictionary containing a list of Python functions! We'll call it the **Python Programmers' Index**, **PyPI** for short (oh wait, PyPI already exists). Maybe not **PyPI**, just the **Python Programmers' Index**.
+
+We're going to start off by creating an empty dictionary, named `fns`.
+
+``` python
+funcs = {}
+```
+
+Next, we'll give a nice welcome to the user.
+
+``` python
+fns = {}
+print("Welcome to the Python Programmers' Index!")
+```
+
+Now we're going to create the `running` variable, with the value `True`. The `running` variable will allow us to repeat our program until the user types something in, such as `quit`.
+
+``` python
+fns = {}
+print("Welcome to the Python Programmers' Index!")
+running = True
+```
+
+Next up - use this `running` variable to define a `while` loop.
+
+``` python
+fns = {}
+print("Welcome to the Python Programmers' Index!")
+running = True
+while running:
+  # code
+```
+
+Inside our while loop, we'll ask the user to enter the name of a function, or type `0` to quit. We'll store the input in a variable called `fn_name`.
+
+``` python
+fns = {}
+print("Welcome to the Python Programmers' Index!")
+running = True
+while running:
+  fn_name = input("Enter a function name, or type 0 to exit... ")
+```
+
+Next up, we'll create an `if` statement to check whether the user entered `0`.
+
+``` python
+fns = {}
+print("Welcome to the Python Programmers' Index!")
+running = True
+while running:
+  fn_name = input("Enter a function name, or type 0 to exit... ")
+  if fn_name == "0":
+    # code
+```
+
+If the user wants to quit, we can set `running` to `False` to stop our loop.
+
+``` python
+fns = {}
+print("Welcome to the Python Programmers' Index!")
+running = True
+while running:
+  fn_name = input("Enter a function name, or type 0 to exit... ")
+  if fn_name == "0":
+    running = False
+```
+
+If not, we need to check whether the function is already stored in the `fns` dictionary.
+
+``` python
+fns = {}
+print("Welcome to the Python Programmers' Index!")
+running = True
+while running:
+  fn_name = input("Enter a function name, or type 0 to exit... ")
+  if fn_name == "0":
+    running = False
+  elif fn_name in fns:
+    # code
+```
+
+If we already have that function stored in the dictionary, we can just print out the definition.
+
+``` python
+fns = {}
+print("Welcome to the Python Programmers' Index!")
+running = True
+while running:
+  fn_name = input("Enter a function name, or type 0 to exit... ")
+  if fn_name == "0":
+    running = False
+  elif fn_name in fns:
+    print(fn_name, ":", fns[fn_name])
+```
+
+If not, we can ask the user about the function, and store this explanation in a variable called `fn_def`
+
+``` python
+fns = {}
+print("Welcome to the Python Programmers' Index!")
+running = True
+while running:
+  fn_name = input("Enter a function name, or type 0 to exit... ")
+  if fn_name == "0":
+    running = False
+  elif fn_name in fns:
+    print(fn_name, ":", fns[fn_name])
+  else:
+    print("I don't know that function. What does it do?")
+    fn_def = input()
+```
+
+Finally, we store the value of `fn_def` in the dictionary. We use the function name (`fn_name`) as the key, and `fn_def` as the value.
+
+``` python
+fns = {}
+print("Welcome to the Python Programmers' Index!")
+running = True
+while running:
+  fn_name = input("Enter a function name, or type 0 to exit... ")
+  if fn_name == "0":
+    running = False
+  elif fn_name in fns:
+    print(fn_name, ":", fns[fn_name])
+  else:
+    print("I don't know that function. What does it do?")
+    fn_def = input()
+    fns[fn_name] = fn_def
+```
+
+This is the output of our program:
+
+``` text
+Welcome to the Python Programmers' Index!
+Enter a function name, or type 0 to exit... *print*
+I don't know that function. What does it do?
+*Output text to the console*
+Enter a function name, or type 0 to exit... *input*
+I don't know that function. What does it do?
+*Take in text from the console*
+Enter a function name, or type 0 to exit... *print*
+print : Output text to the console
+Enter a function name, or type 0 to exit... *input*
+input : Take in text from the console
+Enter a function name, or type 0 to exit... *quit*
+I don't know that function. What does it do?
+*Exit Python*
+Enter a function name, or type 0 to exit... *quit*
+quit : Exit Python
+Enter a function name, or type 0 to exit... *0*
+(program quits)
+```
+
+[Back to contents](#contents)
+
+# Chapter 19: Classes
+
+A class is basically a group of functions and variables.
+
+We can create **instances** of classes, which become known as **objects**.
+
+## Creating a class
+
+We can create a class in Python using the `class` keyword. We then indent everything inside the class.
+
+``` python
+class Dog:
+  # code
+```
+
+The above code creates a class named `Dog`. We can create a 'clone' of the class, known as an object, like this:
+
+``` python
+my_dog = Dog()
+```
+
+However, the code below would give us an error:
+
+``` python
+class Dog:
+  # code
+
+my_dog = Dog()
+```
+
+``` text
+IndentationError: expected an indented block after class definition on line 1
+```
+
+Python expects us to put something in the class body. The same error would occur if we created an empty `if` statement. To fix this, we can use the `pass` keyword.
+
+``` python
+class Dog:
+  pass
+
+my_dog = Dog()
+```
+
+> The `pass` keyword does absolutely nothing, but it allows us to have empty blocks of code.
+
+Inside the class body, we can create functions (known as **methods** when they are part of a class) and properties.
+
+Let's now look at **constructors**.
+
+## Class contructors
+
+A constructor is a function that runs whenever we create a new object. When we typed `Dog()` in the previous example, the `Dog()` constructor was called. Let's look at how we can create a constructor.
+
+Constructors in Python are functions called `__init__`. Let's look at an example.
+
+``` python
+class Cat:
+  def __init__(self):
+    print("A wild Cat appears!")
+
+my_cat = Cat()
+```
+
+Output:
+
+``` text
+A wild Cat appears!
+```
+
+In the above example, we are creating a class named `Cat`. Inside the `Cat` class, we have a constructor. When the constructor is called, `"A wild Cat appears!"` is printed to the console.
+
+We can have multiple objects of the same class. For example, I could have seven different instances of the `Cat` class. For this reason, the first parameter of any function in a class is the `self` parameter. `self` is just the current object. We can use the `self` parameter the same way as we use the `this` keyword in other languages.
+
+We can have other parameters in the class constructor, which need to be passed as arguments when the object is created. Take the following code:
+
+``` python
+class Dog:
+  def __init__(self, dog_name):
+    self.name = dog_name
+
+smudge = Dog("Smudge")
+rufus = Dog("Rufus")
+```
+
+In the above example, we are creating a `Dog` class. In this class we create a constructor that takes in a parameter - `dog_name`.
+
+Inside the constructor, we are accessing the `self` parameter. `self.name` indicates that we are creating a property called `name` for this current object. This only affects the current object, all other instances of `Dog` will not be affected.
+
+Finally, outside of the class, we create 2 new instance of `Dog` - one called `Smudge` (my actual dog's name), and another called `Rufus`.
+
+## Class methods
+
+We can create our own functions for our class. These functions are known as **methods**.
+
+``` python
+class Dog:
+  def __init__(self, dog_name):
+    self.name = dog_name
+    print("A dog called", self.name, "comes running out of the bushes.")
+  def bark(self):
+    print(self.name, ": WOOF!")
+
+smudge = Dog("Smudge")
+smudge.bark()
+```
+
+Output:
+
+``` text
+A dog called Smudge comes running out of the bushes.
+Smudge: WOOF!
+```
+
+In the above program, we start by creating a `Dog` class. We laet create an instance (**object**) of this class.
+
+Inside the dog class, we have two functions - a constructor and a `bark` method.
+
+Inside the constructor, we start by creating a new variable (**property**) of the object - called `name`. We set this property to equal the value of `dog_name` (the parameter). We also display a message letting the user know that a new `Dog` object was created.
+
+We also have a method called `bark`. When this method is called on an object, we print the dog's name (`name` property of the current object) followed by `WOOF!`.
+
+Finally, outside the class, we create a new `Dog` object. We pass `"Smudge"` as the `name` parameter, and store the object in a variable called `smudge`. We use this `smudge` object to call the `bark` method. This method prints `Smudge: WOOF!` to the console.
+
+## Accessing object properties
+
+We have already talked about how we can use the `self` parameter *within* a class to access an object's properties, but how would we read or modify a property from *outside* the class? Simple.
+
+``` python
+smudge = Dog("Smudge")
+smudge.bark()
+smudge.name = "Bobby"
+smudge.bark()
+```
+
+Output:
+
+``` text
+A dog called Smudge comes running out of the bushes.
+Smudge : WOOF!
+Bobby : WOOF!
+```
+
+*For the sake of simplicity, I ommitted the class definition in the above program. The class is exactly the same as in the last example.*
+
+In the above code, we first start by creating a new instance of `Dog`. We create a new `Dog` object, passing `"Smudge"` as the `name` parameter. This means `smudge.name` is set to `"Smudge"`.
+
+After that, we call the `bark` method of the `smudge` object, using `smudge.bark()`. This prints `Smudge : WOOF!` to the console.
+
+Next, we access the `name` property of the `smudge` object, by typing `smudge.name`. We change this property from `"Smudge"` to `"Bobby"`. This changes the `Dog`'s name to `Bobby`.
+
+Finally, we call the `bark` method again, which displays the updated name.
