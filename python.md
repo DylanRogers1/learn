@@ -27,6 +27,10 @@
 [Chapter 17: Data types](#chapter-17-data-types)
 [Chapter 18: Dictionaries](#chapter-18-dictionaries)
 [Chapter 19: Classes](#chapter-19-classes)
+[Chapter 20: Files](#chapter-20-files)
+
+[Programming Projects](#programming-projects)
+[Project: Python Programmers' Index](#project-python-programmers-index)
 
 ## Licence
 
@@ -1933,7 +1937,558 @@ if "colour" in yellow:
   print("'colour' is a key in the `yellow` dictionary!")
 ```
 
-## Project: Python Programmers' Index
+**If you'd like to build a project based on dictionaries, have a look at the [Python Programmers' Index](#project-python-programmers-index) we build here!**
+
+[Back to contents](#contents)
+
+# Chapter 19: Classes
+
+A class is basically a group of functions and variables.
+
+We can create **instances** of classes, which become known as **objects**.
+
+## Creating a class
+
+We can create a class in Python using the `class` keyword. We then indent everything inside the class.
+
+``` python
+class Dog:
+  # code
+```
+
+The above code creates a class named `Dog`. We can create a 'clone' of the class, known as an object, like this:
+
+``` python
+my_dog = Dog()
+```
+
+However, the code below would give us an error:
+
+``` python
+class Dog:
+  # code
+
+my_dog = Dog()
+```
+
+``` text
+IndentationError: expected an indented block after class definition on line 1
+```
+
+Python expects us to put something in the class body. The same error would occur if we created an empty `if` statement. To fix this, we can use the `pass` keyword.
+
+``` python
+class Dog:
+  pass
+
+my_dog = Dog()
+```
+
+> The `pass` keyword does absolutely nothing, but it allows us to have empty blocks of code.
+
+Inside the class body, we can create functions (known as **methods** when they are part of a class) and properties.
+
+Let's now look at **constructors**.
+
+## Class contructors
+
+A constructor is a function that runs whenever we create a new object. When we typed `Dog()` in the previous example, the `Dog()` constructor was called. Let's look at how we can create a constructor.
+
+Constructors in Python are functions called `__init__`. Let's look at an example.
+
+``` python
+class Cat:
+  def __init__(self):
+    print("A wild Cat appears!")
+
+my_cat = Cat()
+```
+
+Output:
+
+``` text
+A wild Cat appears!
+```
+
+In the above example, we are creating a class named `Cat`. Inside the `Cat` class, we have a constructor. When the constructor is called, `"A wild Cat appears!"` is printed to the console.
+
+We can have multiple objects of the same class. For example, I could have seven different instances of the `Cat` class. For this reason, the first parameter of any function in a class is the `self` parameter. `self` is just the current object. We can use the `self` parameter the same way as we use the `this` keyword in other languages.
+
+We can have other parameters in the class constructor, which need to be passed as arguments when the object is created. Take the following code:
+
+``` python
+class Dog:
+  def __init__(self, dog_name):
+    self.name = dog_name
+
+smudge = Dog("Smudge")
+rufus = Dog("Rufus")
+```
+
+In the above example, we are creating a `Dog` class. In this class we create a constructor that takes in a parameter - `dog_name`.
+
+Inside the constructor, we are accessing the `self` parameter. `self.name` indicates that we are creating a property called `name` for this current object. This only affects the current object, all other instances of `Dog` will not be affected.
+
+Finally, outside of the class, we create 2 new instance of `Dog` - one called `Smudge` (my actual dog's name), and another called `Rufus`.
+
+## Class methods
+
+We can create our own functions for our class. These functions are known as **methods**.
+
+``` python
+class Dog:
+  def __init__(self, dog_name):
+    self.name = dog_name
+    print("A dog called", self.name, "comes running out of the bushes.")
+  def bark(self):
+    print(self.name, ": WOOF!")
+
+smudge = Dog("Smudge")
+smudge.bark()
+```
+
+Output:
+
+``` text
+A dog called Smudge comes running out of the bushes.
+Smudge: WOOF!
+```
+
+In the above program, we start by creating a `Dog` class. We laet create an instance (**object**) of this class.
+
+Inside the dog class, we have two functions - a constructor and a `bark` method.
+
+Inside the constructor, we start by creating a new variable (**property**) of the object - called `name`. We set this property to equal the value of `dog_name` (the parameter). We also display a message letting the user know that a new `Dog` object was created.
+
+We also have a method called `bark`. When this method is called on an object, we print the dog's name (`name` property of the current object) followed by `WOOF!`.
+
+Finally, outside the class, we create a new `Dog` object. We pass `"Smudge"` as the `name` parameter, and store the object in a variable called `smudge`. We use this `smudge` object to call the `bark` method. This method prints `Smudge: WOOF!` to the console.
+
+## Accessing object properties
+
+We have already talked about how we can use the `self` parameter *within* a class to access an object's properties, but how would we read or modify a property from *outside* the class? Simple.
+
+``` python
+smudge = Dog("Smudge")
+smudge.bark()
+smudge.name = "Bobby"
+smudge.bark()
+```
+
+Output:
+
+``` text
+A dog called Smudge comes running out of the bushes.
+Smudge : WOOF!
+Bobby : WOOF!
+```
+
+*For the sake of simplicity, I ommitted the class definition in the above program. The class is exactly the same as in the last example.*
+
+In the above code, we first start by creating a new instance of `Dog`. We create a new `Dog` object, passing `"Smudge"` as the `name` parameter. This means `smudge.name` is set to `"Smudge"`.
+
+After that, we call the `bark` method of the `smudge` object, using `smudge.bark()`. This prints `Smudge : WOOF!` to the console.
+
+Next, we access the `name` property of the `smudge` object, by typing `smudge.name`. We change this property from `"Smudge"` to `"Bobby"`. This changes the `Dog`'s name to `Bobby`.
+
+Finally, we call the `bark` method again, which displays the updated name, `Bobby`.
+
+> We have only scratched the surface of **classes** in this chapter. There is so much to learn about classes that I don't think is neccasary at this level. It's also important to remember that classes are complicated. If at any point you get confused, that's fine. You don't need to remember everything we talk about, stressing about it will just make programming less enjoyable!
+
+[Back to contents](#contents)
+
+# Chapter 20: Files
+
+This is a really fun part of programming (at least it is for me!) Working with files allows us to save information for later. At the end of the chapter, we'll create a **to-do list** app, that will save the items for later! Let's get started!
+
+## Opening files
+
+We can open a file using the following syntax:
+
+``` python
+open(file_path, mode)
+```
+
+Let's discuss the 4 modes we can open a file in:
+
+* `"r"` - Read: This opens the file in read-only mode - we can view the contents, but we can't edit.
+* `"x"` - Create: This creates an empty file, but gives an error if it already exists.
+* `"w"` - Write: This opens a file so we can edit it, creates it if it doesn't exist. **WARNING**: Existing file contents will be lost.
+* `"a"` - Append: This opens a file, creates it if it doesn't exist. We can add new content to the file, but can't modify existing content.
+
+Opening files for **reading**:
+
+``` python
+open(file_path, "r")
+```
+
+OR:
+
+``` python
+open(file_path)
+```
+
+> Read mode is the default mode, so we don't need to specify it.
+
+Opening files for **writing**:
+
+``` python
+open(file_path, "w")
+```
+
+Opening files for **appending**:
+
+``` python
+open(file_path, "a")
+```
+
+**Creating** a file:
+
+``` python
+open(file_path, "x")
+```
+
+## Creating files
+
+We can create a file in two ways - in **write** mode, or in **create** mode.
+
+To create a file in **create** mode:
+
+``` python
+my_file = open("story.txt", "x")
+my_file.close()
+```
+
+However, if the file already exists, we will get an error:
+
+``` text
+Exception has occurred: FileExistsError
+[Errno 17] File exists: 'story.txt'
+```
+
+To fix this, we can instead open the file in **write** mode:
+
+``` python
+my_file = open("story.txt", "w")
+my_file.close()
+```
+
+> **WARNING**: While **write** mode will not produce an error if the file exists, all existing content will be deleted (if you use **write** mode). Always be careful when opening files in **write** mode.
+
+## Writing to files
+
+Once we have opened a file in **write** mode, we can edit the contents of our file.
+
+Let's update `story.txt` with a (terrible) story.
+
+``` python
+my_file = open("story.txt", "w")
+my_file.write("One day, I went shopping. The end.")
+my_file.close()
+```
+
+Contents of `story.txt`:
+
+``` text
+One day, I went shopping. The end.
+```
+
+On line 1, we are opening the `story.txt` file in **write** mode.
+
+On line 2, we are calling the `write()` method on our file object. This writes the text `"One day, I went shopping. The end."` to the disk.
+
+On line 3, we close the file. This allows other programs to access it.
+
+> Always remember to close files. Closing files allows other programs to access the file, and files may become unusuable if you don't close them. No pressure, of course.
+
+## Reading files
+
+We can read a file using the `read` method.
+
+``` python
+f = open("settings.txt")
+print(f.read())
+f.close()
+```
+
+*The contents of `settings.txt` will be printed to the console.*
+
+Let's read back our `story.txt` file!
+
+``` python
+my_file = open("story.txt", "r") # the "r" argument is not required
+story = my_file.read()
+my_file.close()
+print(story)
+```
+
+In the above program, we start by opening `story.txt` in **read** mode. We then read the file and store the contents in the `story` variable. We then close the file, and finally print the value of `story`.
+
+## Appending to files
+
+We can append to a file by first opening in **append** mode:
+
+``` python
+my_file = open("file.txt", "a")
+```
+
+After that, we use the standard `write` method:
+
+``` python
+my_file = open("file.txt", "a")
+my_file.write("Hello")
+```
+
+And, of course, close the file:
+
+``` python
+my_file = open("file.txt", "a")
+my_file.write("Hello")
+my_file.close()
+```
+
+For example, let's say the `story.txt` file contains the following content:
+
+``` text
+One day, in a small town, a boy named Ben went venturing into the forest.
+However, when Ben reached the centre, something strange happened.
+
+```
+
+We could add text to the file:
+
+``` python
+f = open("story.txt", "a")
+f.write("A monster began to form - made out of leaves!")
+f.close()
+```
+
+The content of `story.txt` would now be as follows:
+
+``` text
+One day, in a small town, a boy named Ben went venturing into the forest.
+However, when Ben reached the centre, something strange happened.
+A monster began to form - made out of leaves!
+```
+
+## Deleting files
+
+In order to delete files, we need to introduce a new concept, known as **modules**. All you need to know at the moment is that we can *import* modules using the `import` keyword.
+
+Deleting files uses the `os` module, which we can import like this:
+
+``` python
+import os
+```
+
+To delete a single file, we can use the `remove()` function of the `os` module.
+
+``` python
+import os
+os.remove("story.txt")
+```
+
+We can also delete a folder, as long as it is empty, using the `os.rmdir()` function.
+
+``` python
+import os
+os.rmdir("to-do-lists")
+```
+
+## Creating folders
+
+We can use the `os` module to create folders. Use the `mkdir()` function:
+
+``` python
+import os
+os.mkdir("lists")
+```
+
+## Checking if a file exists
+
+To check if a file exists, use the `os.path.exists()` function:
+
+``` python
+import os
+if os.path.exists("lists/shopping-list.txt"):
+  print("Shopping list file exists!")
+```
+
+We can also check if a folder exists, using the same function:
+
+``` python
+# create the 'lists' folder if it doesn't already exist
+import os
+if not os.path.exists("lists"):
+  os.mkdir("lists")
+```
+
+**Have a go at building a [To-Do List](#project-to-do-list) in Python! It will put your file handling skills to the test!**
+
+[Back to contents](#contents)
+
+# Chapter 21: Modules
+
+In this chapter, I want to introduce a new concept in Python, known as **modules**. A module is really just a Python file, however we can do some interesting stuff using modules, so they're a useful thing to know about!
+
+To create a module, just create a new file with the `.py` extension. You should now have two files in the same directory.
+
+I'll call my module `dcode.py`, but feel free to come up with a cool name for yours (just remember not to use symbols)! We'll also need another file, I'll call mine `hello.py`.
+
+Folder structure:
+
+``` text
+my_python_project/
+|____hello.py
+|____dcode.py
+```
+
+Inside `dcode.py` (or whatever your module is called), create a new function called `is_even`:
+
+``` python
+def is_even():
+  pass
+```
+
+> Remember: We use the **pass** keyword when we want an empty code block, such as an empty function declaration.
+
+The `is_even` function is going to take in 1 parameter - `num`.
+
+``` python
+def is_even(num):
+  pass
+```
+
+Now we need to do some fancy stuff with the `%` operator. Don't worry if you don't understand this code, it's just example code that we'll use to help better understand modules.
+
+``` python
+def is_even(num):
+  if num % 2 == 0:
+    return True
+  return False
+```
+
+There! That's all the code in our module file. Now let's go to our other file - `hello.py`.
+
+Inside `hello.py`, we need to import the `dcode` module. We can do that with the following line of code:
+
+``` python
+import dcode
+```
+
+> Note: If your module is not called **dcode**, replace everywhere you see `dcode` with your module name.
+
+We can then call the `is_even` function using this syntax:
+
+``` python
+module.function(args...)
+```
+
+As the module is called `dcode`, and the function is called `is_even`, we could call the function like this:
+
+``` python
+import dcode
+dcode.is_even(num)
+```
+
+Let's try with the number `2`:
+
+``` python
+import dcode
+print(dcode.is_even(2))
+```
+
+Output:
+
+``` text
+True
+```
+
+Great! Let's try with another number:
+
+``` python
+import dcode
+print(dcode.is_even(1327))
+```
+
+Output:
+
+``` text
+False
+```
+
+We can also use variables in a module.
+
+`dcode.py`:
+
+``` python
+pi = 3.1415926535898
+```
+
+`hello.py`:
+
+``` python
+import dcode
+print(dcode.pi)
+```
+
+Output:
+
+``` text
+3.1415926535898
+```
+
+We can give a module a different name when we import it:
+
+``` python
+import dcode as d
+```
+
+We can then reference the module using that alias name:
+
+``` python
+import dcode as d
+print(d.pi) # d.pi instead of dcode.pi
+```
+
+Or, we can only import certain functions / variables, using the `from` keyword:
+
+``` python
+from dcode import pi
+```
+
+We can then reference those functions / variables without the module prefix:
+
+``` python
+from dcode import pi
+print(pi) # pi intead of dcode.pi
+```
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+# Programming Projects
+
+I want this tutorial to be fun, so here are a list of programming projects that you can create! I explain each line of code in detail, so you can start building your own projects in no time!
+
+View a list of all the projects in the [contents](#contents).
+
+[Back to contents](#contents)
+
+# Project: Python Programmers' Index
 
 Now is a great time to do a little Python project. What we're going to create is an app that allows us to update a dictionary containing a list of Python functions! We'll call it the **Python Programmers' Index**, **PyPI** for short (oh wait, PyPI already exists). Maybe not **PyPI**, just the **Python Programmers' Index**.
 
@@ -2090,154 +2645,121 @@ Enter a function name, or type 0 to exit... *0*
 
 [Back to contents](#contents)
 
-# Chapter 19: Classes
+# Project: To-Do List
 
-A class is basically a group of functions and variables.
+Let's build a project! Test yourself on lots of Python skills - particularly **file handling** - with this project!
 
-We can create **instances** of classes, which become known as **objects**.
+## To-Do List: Goals
 
-## Creating a class
+* Build an app that allows the user to create to-do lists.
+* The user should be able to add items to the to-do lists, as well as view them.
+* The to-do lists should be saved as files in order to view them even after the program has been closed.
 
-We can create a class in Python using the `class` keyword. We then indent everything inside the class.
+Let's get coding!
 
-``` python
-class Dog:
-  # code
-```
+> Try to figure it out yourself before looking at the examples. Also remember that in programming, there is no 'correct' way of doing things. as long as your app meets the goals of the project, it's perfectly valid!
 
-The above code creates a class named `Dog`. We can create a 'clone' of the class, known as an object, like this:
-
-``` python
-my_dog = Dog()
-```
-
-However, the code below would give us an error:
+## To-Do List: Basic Example
 
 ``` python
-class Dog:
-  # code
-
-my_dog = Dog()
+import os # import the `os` module so we can check if files exist
+if not os.path.exists("to-do-list.txt"): # check if the "to-do-list.txt" file exists
+  f = open("to-do-list.txt", "x") # if it doesn't, create it
+print("Welcome to To-Do List Plus - the greatest to-do list!") # welcome the user
+running = True # create a 'running' variable to control the while loop
+while running: # run until the user quits the program
+  mode = input("Would you like to view the list (v), add an item (a) or quit TDL+ (q)? ") # ask for the mode
+  if mode == "v": # viewing the to-do list
+    f = open("to-do-list.txt", "r") # open the to-do list, read-only
+    print() # empty line (looks nice)
+    print(f.read()) # print the contents of the to-do list
+    f.close() # close the file
+  if mode == "a": # adding items to the list
+    item = input(" >>> ") # ask for the item
+    f = open("to-do-list.txt", "a") # open the to-do list for appending
+    f.write(item + "\n") # add the item to the list (\n is newline)
+    f.close() # close the file
+  if mode == "q": # quit program
+    running = False # exit loop + quit program
 ```
 
-``` text
-IndentationError: expected an indented block after class definition on line 1
-```
-
-Python expects us to put something in the class body. The same error would occur if we created an empty `if` statement. To fix this, we can use the `pass` keyword.
+<!-- This is what I would call a '*bodge*'. Sure, it's valid code, but it's really bad. Anyway, it's probably as simple as we're going to get!
 
 ``` python
-class Dog:
-  pass
-
-my_dog = Dog()
+import os
 ```
 
-> The `pass` keyword does absolutely nothing, but it allows us to have empty blocks of code.
-
-Inside the class body, we can create functions (known as **methods** when they are part of a class) and properties.
-
-Let's now look at **constructors**.
-
-## Class contructors
-
-A constructor is a function that runs whenever we create a new object. When we typed `Dog()` in the previous example, the `Dog()` constructor was called. Let's look at how we can create a constructor.
-
-Constructors in Python are functions called `__init__`. Let's look at an example.
+`import os` imports the `os` module so we can check whether files exist.
 
 ``` python
-class Cat:
-  def __init__(self):
-    print("A wild Cat appears!")
-
-my_cat = Cat()
+if not os.path.exists("to-do-list.txt"):
+  f = open("to-do-list.txt", "x")
 ```
 
-Output:
-
-``` text
-A wild Cat appears!
-```
-
-In the above example, we are creating a class named `Cat`. Inside the `Cat` class, we have a constructor. When the constructor is called, `"A wild Cat appears!"` is printed to the console.
-
-We can have multiple objects of the same class. For example, I could have seven different instances of the `Cat` class. For this reason, the first parameter of any function in a class is the `self` parameter. `self` is just the current object. We can use the `self` parameter the same way as we use the `this` keyword in other languages.
-
-We can have other parameters in the class constructor, which need to be passed as arguments when the object is created. Take the following code:
+These two lines create the `to-do-list.txt` file if it doesn't already exist.
 
 ``` python
-class Dog:
-  def __init__(self, dog_name):
-    self.name = dog_name
-
-smudge = Dog("Smudge")
-rufus = Dog("Rufus")
+print("Welcome to To-Do List Plus - the greatest to-do list!")
 ```
 
-In the above example, we are creating a `Dog` class. In this class we create a constructor that takes in a parameter - `dog_name`.
-
-Inside the constructor, we are accessing the `self` parameter. `self.name` indicates that we are creating a property called `name` for this current object. This only affects the current object, all other instances of `Dog` will not be affected.
-
-Finally, outside of the class, we create 2 new instance of `Dog` - one called `Smudge` (my actual dog's name), and another called `Rufus`.
-
-## Class methods
-
-We can create our own functions for our class. These functions are known as **methods**.
+This line prints a welcome message to the user.
 
 ``` python
-class Dog:
-  def __init__(self, dog_name):
-    self.name = dog_name
-    print("A dog called", self.name, "comes running out of the bushes.")
-  def bark(self):
-    print(self.name, ": WOOF!")
-
-smudge = Dog("Smudge")
-smudge.bark()
+running = True
+while running:
 ```
 
-Output:
-
-``` text
-A dog called Smudge comes running out of the bushes.
-Smudge: WOOF!
-```
-
-In the above program, we start by creating a `Dog` class. We laet create an instance (**object**) of this class.
-
-Inside the dog class, we have two functions - a constructor and a `bark` method.
-
-Inside the constructor, we start by creating a new variable (**property**) of the object - called `name`. We set this property to equal the value of `dog_name` (the parameter). We also display a message letting the user know that a new `Dog` object was created.
-
-We also have a method called `bark`. When this method is called on an object, we print the dog's name (`name` property of the current object) followed by `WOOF!`.
-
-Finally, outside the class, we create a new `Dog` object. We pass `"Smudge"` as the `name` parameter, and store the object in a variable called `smudge`. We use this `smudge` object to call the `bark` method. This method prints `Smudge: WOOF!` to the console.
-
-## Accessing object properties
-
-We have already talked about how we can use the `self` parameter *within* a class to access an object's properties, but how would we read or modify a property from *outside* the class? Simple.
+Here we first declare a variable called `running`, and loop until this variable becomes `False`.
 
 ``` python
-smudge = Dog("Smudge")
-smudge.bark()
-smudge.name = "Bobby"
-smudge.bark()
+mode = input("Would you like to view the list (v), add an item (a) or quit TDL+ (q)?")
 ```
 
-Output:
+Here we ask the user whether they want to view, add or quit, and we store their response in the `mode` variable. -->
 
-``` text
-A dog called Smudge comes running out of the bushes.
-Smudge : WOOF!
-Bobby : WOOF!
+## To-Do List: Advanced Example
+
+This is what the program above would look like if it was written using *good code*. Sure, it's a little longer, but it's much easier to read and adapt.
+
+``` python
+import os
+
+class ToDoList:
+  def __init__(self, list_name):
+    self.name = list_name
+    if not os.path.exists("lists/" + list_name + ".txt"):
+      f = open("lists/" + list_name + ".txt", "x")
+      f.close()
+    f = open("lists/" + list_name + ".txt")
+    self.content = f.read().split("\n")
+    f.close()
+  def __del__(self):
+    f = open("lists/" + self.name + ".txt", "w")
+    f.write("\n".join(self.content))
+    f.close()
+  def add(self, item):
+    self.content.append(item)
+  def get(self):
+    return "\n".join(self.content)
+
+print("Welcome to To-Do List Plus! (v2)")
+while True:
+  list_name = input("Please enter the name of your to-do list (type 'q' to exit)... ")
+  if list_name =="q":
+    break
+  l = ToDoList(list_name)
+  while True:
+    mode = input("Would you like to view the list (v), add a new item (a) or exit this to-do list (q)? ")
+    if mode == "v":
+      print(l.get() + "\n")
+    if mode == "a":
+      item = input(" >>> ")
+      l.add(item)
+    if mode == "q":
+      del l
+      break
 ```
 
-*For the sake of simplicity, I ommitted the class definition in the above program. The class is exactly the same as in the last example.*
+While the code above is longer than the basic example, this code is a lot more 'reusable' than before.
 
-In the above code, we first start by creating a new instance of `Dog`. We create a new `Dog` object, passing `"Smudge"` as the `name` parameter. This means `smudge.name` is set to `"Smudge"`.
-
-After that, we call the `bark` method of the `smudge` object, using `smudge.bark()`. This prints `Smudge : WOOF!` to the console.
-
-Next, we access the `name` property of the `smudge` object, by typing `smudge.name`. We change this property from `"Smudge"` to `"Bobby"`. This changes the `Dog`'s name to `Bobby`.
-
-Finally, we call the `bark` method again, which displays the updated name.
+This code also has more features - we can create multiple to do lists, and it also runs faster (we don't have to keep writing to the disk)
