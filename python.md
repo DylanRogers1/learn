@@ -1,5 +1,5 @@
 
-# The Ultimate Guide to Everything Python
+# The Ultimate Guide To Everything Python
 
 *This tutorial was created by Dylan Rogers. It is owned and managed by [**The Open Project**](https://youtube.com/@open-project) and any attempt to redistribute or use this content must follow the [licence](#licence)*
 
@@ -28,6 +28,8 @@
 [Chapter 18: Dictionaries](#chapter-18-dictionaries)
 [Chapter 19: Classes](#chapter-19-classes)
 [Chapter 20: Files](#chapter-20-files)
+[Chapter 21: Modules](#chapter-21-modules)
+[Chapter 22: Maths](#chapter-22-maths)
 
 [Programming Projects](#programming-projects)
 [Project: Python Programmers' Index](#project-python-programmers-index)
@@ -36,10 +38,10 @@
 
 <!-- **This content is a fork of the original by Dylan Rogers. Please abide by the licence.** (uncomment this line if your document is a fork of my document) -->
 
-If you are *not* redistributing this file (in other words, you are just a reader and this file will stay on your computer, you will not send it to anyone):
+If you are *not* redistributing this file (in other words, you are just a reader and this tutorial will stay on your computer, you will not send it to anyone):
 
-* You may use the skills learned in this book for personal, commercial or non-commercial projects
-* As long as you do not share the document, you may use it however you would like to.
+* You may use the skills learned in this tutorial for personal, commercial or non-commercial projects
+* As long as you do not share this tutorial, you may use it however you would like to.
 * If you share the document, you are obliged to follow the rules below.
 
 If you are a content/tutorial maker and would like to share this tutorial with others:
@@ -53,6 +55,7 @@ If you fork and redistribute your own version of this:
 * You may share your content commercially or non-commercially, provided credit is given.
 * You must include this licence in all publicly available versions.
 * You must uncomment the comment at the beginning of this licence.
+* The content must be correct - you must not **intentionally** provide misinformation (it's fine to make a few accidental mistakes, as long as you fix any problems when prompted).
 
 General information:
 
@@ -349,6 +352,25 @@ Result:
 
 ``` text
 1
+```
+
+## Appending strings
+
+Not really maths, but I thought I'd slip it in here anyway, as it'll be important for later!
+
+We can join (append) two strings together using the `+` operator - the same as adding.
+
+``` python
+first_name = "Billy"
+second_name = "Robinsons"
+full_name = first_name + last_name
+print(full_name) # BillyRobinsons
+```
+
+Output:
+
+``` text
+BillyRobinsons
 ```
 
 [Back to contents](#contents)
@@ -2448,7 +2470,7 @@ We can then reference the module using that alias name:
 
 ``` python
 import dcode as d
-print(d.pi) # d.pi instead of dcode.pi
+print(d.pi) # 'd.pi' instead of 'dcode.pi'
 ```
 
 Or, we can only import certain functions / variables, using the `from` keyword:
@@ -2461,7 +2483,434 @@ We can then reference those functions / variables without the module prefix:
 
 ``` python
 from dcode import pi
-print(pi) # pi intead of dcode.pi
+print(pi) # 'pi' intead of 'dcode.pi'
+```
+
+[Back to contents](#contents)
+
+# Chapter 22: Maths
+
+In this chapter, we'll learn all about the `math` module, which will allow us to do all sorts of complex maths! Let's go through some of the functions in the `math` module!
+
+## `min()` and `max()`
+
+The `min` and `max` modules aren't part of the `math` module, so we don't need to import anything to use them.
+
+`min` will find the lowest number, whereas `max` will find the highest number.
+
+Example of `min`:
+
+``` python
+lowest_num = min(3, 4, 8, 7, 1)
+print(lowest_num) # 1
+```
+
+Output:
+
+``` text
+1
+```
+
+Example of `max`:
+
+``` python
+highest_num = max(3, 4, 8, 7, 1)
+print(highest_num) # 8
+```
+
+Output:
+
+``` text
+8
+```
+
+## Exponents using `pow()`
+
+We can use the `pow` function to raise a number to the power of another number.
+
+``` python
+pow(x, y) # x^y
+```
+
+Let's do an example. Raise `2` to the power of `5`:
+
+``` python
+num = pow(2, 5) # 32
+print(num)
+```
+
+Output:
+
+``` text
+32
+```
+
+As you can see, the computer got the correct answer! We could also use the `**` operator to find exponents:
+
+``` python
+num = 3 ** 4
+print(num)
+```
+
+Output:
+
+``` text
+81
+```
+
+## Absolute of a number
+
+We can find the absolute of a number using the `abs` function.
+
+> The absolute of a number is the positive version of it. For example, `abs(8)` would just be `8`, but `abs(-5)` would be `5`. The distance the number is from `0`.
+
+``` python
+abs(num)
+```
+
+Let's find the absolute value of `6` (should just be `6`):
+
+``` python
+print(abs(6))
+```
+
+Output:
+
+``` text
+6
+```
+
+Great! Now let's do something a little more complex. `-13.23 + 4`:
+
+``` python
+num = -13.23 + 4
+print(abs(num))
+```
+
+Output:
+
+``` text
+9.23
+```
+
+## math.factorial
+
+We can find the factorial of a number using `math.factorial()`.
+
+``` python
+import math
+x = math.factorial(4)
+print(x)
+```
+
+Output:
+
+``` text
+24
+```
+
+> Remember to import the `math` module using `import math`.
+
+## math.sqrt
+
+We can find the square root of a number using the `math.sqrt` function.
+
+``` python
+import math
+x = math.sqrt(81)
+print(x)
+```
+
+Output:
+
+``` text
+9
+```
+
+## math.ceil
+
+We can round up using the `math.ceil` function.
+
+If we round `23.4` up, for example, we get `24`.
+
+``` python
+import math
+x = math.ceil(2.718281828)
+print(x)
+```
+
+``` text
+3
+```
+
+## math.floor
+
+We can round down using the `math.floor` function.
+
+If we round `2.9` down, for example, we get `2`.
+
+``` python
+import math
+x = math.floor(3.1415926535898)
+print(x)
+```
+
+``` text
+3
+```
+
+## math.cos
+
+We can find the cosine of a number using the `math.cos` function:
+
+``` python
+import math
+x = math.cos(0)
+print(x)
+```
+
+Output:
+
+``` python
+1.0
+```
+
+## math.sin
+
+We can find the sine of a number using the `math.sin` function:
+
+``` python
+import math
+x = math.sin(7)
+print(x)
+```
+
+Output:
+
+``` python
+0.6569865987187891
+```
+
+## References - `math` module
+
+There are a LOT more `math` functions that I could explain, but I've listed the most basic ones here.  
+If you'd like to learn more about the `math` module, I'd suggest looking at [this awesome reference](https://www.w3schools.com/python/module_math.asp) from [W3Schools](https://w3schools.com)!
+
+[Back to contents](#contents)
+
+# Chapter 23: Random numbers
+
+The `random` module allows us to generate pseudo-random numbers in Python!
+
+## random.random
+
+We can use the `random.random()` function to generate a random (decimal) number between `0` and `1`.
+
+``` python
+import random
+x = random.random()
+print(x)
+```
+
+Output:
+
+``` text
+0.04731547646283796 (or something else)
+```
+
+## random.randint
+
+We can get a random number between two points using the `random.randint` function.
+
+``` python
+import random
+x = random.randint(1, 3)
+print(x)
+```
+
+Output:
+
+``` text
+1, 2 or 3
+```
+
+> Note: When using `randint`, the higher number is included (the above example can result in `3`). With `randrange`, this is not the case.
+
+## random.randrange
+
+`randrange` is the same as `randint`, except that the endpoint is not included. In the example below, the output will never be `4`, but may be `1`, `2` or `3`.
+
+``` python
+import random
+x = random.randrange(1, 4)
+print(x)
+```
+
+Output:
+
+``` text
+1, 2 or 3
+```
+
+## random.choice
+
+We can use the `random.choice` function to pick a random element from
+
+``` python
+lunches = ["a banana", "2 apples", "3 oranges"]
+import random
+print("What should I have for lunch today?")
+x = random.choice(lunches)
+print(x)
+```
+
+Output:
+
+``` text
+What should I have for lunch today?
+a banana / 2 apples / 3 oranges
+```
+
+## random.shuffle
+
+The `random.shuffle` function shuffles a list, so the list goes into a random order.
+
+``` python
+favourite_programming_languages = ["Python", "C", "Java"]
+import random
+random.shuffle(favourite_programming_languages)
+print(favourite_programming_languages)
+```
+
+Output:
+
+``` text
+["Python", "Java", "C"] (or in a different order)
+```
+
+# Chapter 24: Exception handling
+
+In programming, we will often run into things called **exceptions**. Exceptions are basically errors we find while the program is running.
+
+Examples of exceptions:
+
+* `ArithmeticError` - issue with maths
+* `ImportError` - module doesn't exist
+* `NameError` - variable doesn't exist
+* `TypeError` - two different data types combine
+* `ZeroDivisionError` - trying to divide by zero
+* `OSError` - OS-based error - often involving file handling
+
+There are lots more errors, but they're the basic ones for now.
+
+The issue with these exceptions is that, when we run into one, Python will stop and print a load of rubbish onto the screen. In programming, this is not really what we want. To prevent exceptions, we can use a `try` ... `except` block.
+
+Below is the syntax for a `try` ... `except` block:
+
+``` python
+try:
+  # code
+except:
+  # handle the error
+```
+
+A common example of exception handling is when working with files. Consider the following code snippet:
+
+``` python
+f = open("myfile.txt", "x")
+f.close()
+```
+
+In the above code, we create a new file called `myfile.txt`. However, if the file already exists, we get an error:
+
+``` text
+Exception has occurred: FileExistsError
+[Errno 17] File exists: 'myfile.txt'
+```
+
+We can fix this error by using a `try` ... `except` block:
+
+``` python
+try:
+  f = open("myfile.txt", "x")
+  f.close()
+except:
+  pass
+```
+
+> Remember: The `pass` keyword does nothing, but we need to use it if we have an empty code block.
+
+We could also print something if we run into an error:
+
+``` python
+try:
+  f = open("myfile.txt", "x")
+  f.close()
+except:
+  print("--- myfile.txt already exists ---")
+```
+
+If the file already exists, the output to the console would be as follows:
+
+``` text
+--- myfile.txt already exists ---
+```
+
+Another common example of exception handling is to access a variable that may not exist yet:
+
+``` python
+name = input("Enter your name... ")
+if name == "Dylan":
+  msg = "Hello Dylan, welcome to the 'python.md' editor!"
+print(msg)
+```
+
+If the name is `Dylan`, the output of the code would be:
+
+``` text
+Hello Dylan, welcome to the 'python.md' editor!
+```
+
+However, if the user typed in a different name, an exception would be raised, as `msg` doesn't exist:
+
+``` text
+Exception has occurred: NameError
+name 'msg' is not defined
+```
+
+To fix this, we could use exception handling!
+
+``` python
+name = input("Enter your name... ")
+if name == "Dylan":
+  msg = "Hello Dylan, welcome to the 'python.md' editor!!"
+
+try:
+  print(msg)
+except:
+  print("You're not Dylan!")
+```
+
+We can also only handle certain exceptions:
+
+``` python
+try:
+  f = open("myfile.txt", "x")
+  f.close()
+except FileExistsError:
+  print("--- myfile.txt already exists ---")
+```
+
+We can then handle all other exceptions with a different response:
+
+``` python
+try:
+  f = open("myfile.txt", "x")
+  f.close()
+except FileExistsError:
+  print("--- myfile.txt already exists ---")
+except: # all other exceptions
+  print("--- unexpected error ---")
 ```
 
 ---
