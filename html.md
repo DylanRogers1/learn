@@ -1,14 +1,13 @@
-
-# Java: Beginner To Advanced
+# HTML Tutorial: How To Build Cool Websites
 
 *This tutorial was created by Dylan Rogers. It is owned and managed by [**The Open Project**](https://youtube.com/@open-project) and any attempt to redistribute or use this content must follow the [licence](#licence). Find out more at [123web](http://123web.uk)*
 
 ## Contents
 
-[Home](#java-beginner-to-advanced)  
+[Home](#html-tutorial-how-to-build-cool-websites)  
 [Licence](#licence)
 
-[Chapter 1: Hello world](#chapter-1-hello-world)
+[Chapter 1: Your First Website]
 
 ## Licence
 
@@ -46,31 +45,6 @@ Credited links:
 
 [Back to contents](#contents)
 
-# Chapter 1: Hello world
+# Chapter 1: Your First Website
 
-In this chapter, we'll create a hello world program in Java! Hello world programs are a little longer in languages like Java than they would be in languages like Python (Python tutorial available [here](https://github.com/DylanRogers1/learn/blob/master/python.md)) but we'll go through each line of code, so hopefully you'll be a Java expert before we even finish the chapter!
-
-First thing to do is create a new Java class file. If you're using a Java IDE (such as [eclipse](https://eclipse.org)) it should be self-explanatory. I'm going to call my class file `Hello.java`, however you can name yours whatever you like, as long as it has the `.java` extension.
-
-I'd also recommend creating a new folder for your Java project. I'll call mine `learn`, but yours can be whatever. I'm going to go a bit further and create a package (folder) inside my project folder, called `helloworld`. I'll create a new package for each chapter.
-
-My folder structure:
-
-``` text
-learn
-└── helloworld
-    └── Hello.java
-
-```
-
-Inside `Hello.java` (or whatever your class is called), add the following code:
-
-``` java
-public class Hello
-{
-  public static void main(String args[])
-  {
-    System.out.println("Hello, World!");
-  }
-}
-```
+This tutorial is going to be a little different to the others. 
