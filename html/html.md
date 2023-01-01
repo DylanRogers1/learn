@@ -8,7 +8,7 @@
 [Home](#html-tutorial-how-to-build-cool-websites)  
 [Licence](#licence)
 
-[Chapter 1: Your First Website]
+[Chapter 1: Your First Website](#chapter-1-your-first-website)
 
 ## Licence
 
