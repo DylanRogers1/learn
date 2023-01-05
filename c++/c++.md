@@ -53,4 +53,4 @@ One question many people have when they start programming in a low(er)-level lan
 * Very fast (runtime is quick)
 * Very extendible (you can do a lot, many features)
 
-You will often here that C and C++ are both very fast. They're often
+You will often here that C and C++ are both very fast. They're often used for
