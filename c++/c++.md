@@ -1,5 +1,5 @@
 
-# C++ Tutorial: Learn One Of The Most Powerful Programming Language In The World
+# C++ Tutorial: 
 
 *This tutorial was created by Dylan Rogers. It is owned and managed by [**The Open Project**](https://youtube.com/@open-project) and any attempt to redistribute or use this content must follow the [licence](#licence)*
 
@@ -51,6 +51,49 @@ One question many people have when they start programming in a low(er)-level lan
 **Powerful** means two things:
 
 * Very fast (runtime is quick)
-* Very extendible (you can do a lot, many features)
+* Very extendable (you can do a lot, many features)
 
-You will often here that C and C++ are both very fast. They're often
+You will often here that C and C++ are both very fast. They're often used for programs such as video editors, web browsers, programming languages, operating systems, etc. The reason for this is that these languages are VERY fast!
+
+C++ is very extendable, because we can do a lot with it. Languages like Python are limited by the fact it's very abstracted from the hardware. This makes it difficult to do anything low-level with these sort of languages - such as memory management. However, with C++, your knowledge of the language is the limit - you can do pretty much anything with it!
+
+Anyway, let's get coding!
+
+> Create a new file with the `.cpp` extension. I'll call mine `helloworld.cpp`.
+
+Copy the following code into your C++ file:
+
+``` cpp
+#include <iostream>
+int main()
+{
+  std::cout << "Hello world";
+}
+```
+
+Great, now let's run our code! First navigate to the location the file is in. For example:
+
+``` bash
+dylan@open-project:~$ cd coding
+dylan@open-project:~/coding$ cd learn
+dylan@open-project:~/coding/learn$ cd c++
+dylan@open-project:~/coding/learn/c++$ cd code
+dylan@open-project:~/coding/learn/c++/code$ cd 1
+dylan@open-project:~/coding/learn/c++/code/1$ 
+```
+
+Now we need to **compile** our code. We can do that using `g++`:
+
+``` bash
+g++ helloworld.cpp
+```
+
+> Note: If you don't have `g++` installed, you can install it using your package manager (such as `apt`). If you are on Windows, use the Visual Studio IDE to write C++ code - it's the easiest way to compile C++ code on a Windows machine.
+
+Once our program has compiled, we can run it using the following command:
+
+``` bash
+./a.out
+```
+
+The above code executes the `a.out` file in the current directory. `a.out` is the executable program produced by the compiler.

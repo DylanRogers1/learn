@@ -116,7 +116,7 @@ variable_name = value
 For example, we could set the variable `country` to be equal to `"India"` by typing this:
 
 ``` python
-country = "India"
+country = "Brazil"
 ```
 
 ## Reading variables
